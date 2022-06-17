@@ -1,0 +1,345 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Confirmar Dados</title>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+        <link th:href="@{../css/confirmarPagamento.css}" rel="stylesheet">
+        <link th:href="@{../css/realizarPagamento.css}" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+              integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="http://localhost:8080/">Lexian - Loja de Informática</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/cliente">Login
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/carrinho">Carrinho</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <form class="form-horizontal" action="/pedido/cadastrar" method="POST">>
+            <div class="container">
+                <br><br><br>
+                <div class="text-center" style="width: 100%;">
+
+                    <h1>Confirme seus dados de pagamento: </h1>
+                    <br><br><br>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg offset">
+                            <div class="text-md-left" style="width: 100%;">
+
+                                <h1>Dados Pessoais </h1>
+                            </div>
+                            <div class="row">
+
+                                <div class="col  ">
+
+                                    <div class="filtro-endereco">
+                                        <div class="col caixa-endereco d-md-flex align-items-center  mb-30">
+                                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+
+                                                <div class=" dados-endereco">
+
+                                                    <h5 class="text-center text-md-left " th:text="${session['usuario'].nome}">
+                                                    </h5>
+                                                    <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                                        <li class="mr-md-4" th:text="|CPF: ${session['usuario'].cpf}|">
+
+                                                        </li>
+                                                        <li class="mr-md-4" th:text="|Email: ${session['usuario'].email}"> 
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-12">
+                        <div class="col-lg offset">
+                            <div class="text-md-left" style="width: 100%;">
+
+                                <h1>Endereço de entrega: </h1>
+                            </div>
+                            <div class="row">
+
+                                <div class="col ">
+
+                                    <div class="filtro-endereco">
+                                        <div class="col caixa-endereco d-md-flex align-items-center  mb-30">
+                                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+
+                                                <div class=" dados-endereco">
+                                                    <input type="hidden" name="enderecoEscolhido" th:value="${session['endSelecionado'].idEndereco}">
+                                                    <h5 class="text-center text-md-left " th:text="|Rua: ${session['endSelecionado'].rua}|">
+                                                    </h5>
+                                                    <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                                        <li class="mr-md-4" th:text="|Numero: ${session['endSelecionado'].numero}|">
+
+                                                        </li>
+                                                        <li class="mr-md-4" th:text="|Bairro: ${session['endSelecionado'].bairro}|">
+
+                                                        </li>
+                                                        <li class="mr-md-4" th:text="|CEP: ${session['endSelecionado'].cep}|">
+
+                                                        </li>
+                                                        <li class="mr-md-4" th:text="|Complemento: ${session['endSelecionado'].complemento}|">
+                                                            Complemento: Casa 15
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="col-lg offset">
+                            <h1>Frete selecionado</h1>
+                            <div class="row">
+
+                                <div class="col-md-6 ">
+
+                                    <div class="filtro-endereco">
+                                        <div class="col caixa-endereco d-md-flex align-items-center  mb-30">
+                                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+
+                                                <div class=" dados-endereco">
+
+                                                    <h5 class="text-center text-md-left "><i text="Frete Selecionado:"></i>
+                                                    </h5>
+                                                    <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                                        <div>
+                                                            <li class="mr-md-4">
+                                                                <i th:text="|${session['freteEscolhido'].tipo} - ${session['freteEscolhido'].valor}|" th:value="${session['freteEscolhido'].id}"></i><input type="radio" name="freteEscolhido"  th:value="${session['freteEscolhido'].id}" checked> 
+                                                            </li>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                                <div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="col-lg offset">
+                            <h1>Produtos</h1>
+                            <div class="row">
+
+                                <div class="col-md-6 " th:each="produto, stat: ${session['carrinho']}">
+
+                                    <div class="produtosCarrinho">
+                                        <div class="col caixa-produtos d-md-flex align-items-center  mb-30">
+                                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                                <img class="img" th:src="${produto.imagem}" id="imgProduto">
+
+
+                                                <div class="dados-produto">
+
+                                                    <div class="col">
+                                                        <h4 class="product-name"><strong th:text="${produto.nomeProduto}">Nome Produto</strong></h4>
+                                                        <h4><small th:text="|R$ ${produto.valor}|" th:value="${produto.valor}" name="valorProduto"></small></h4>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <h4><small> <strong th:text="|Quantidade: ${produto.qtde}|" ></strong></small></h4>
+                                                    </div>
+                                                </div>
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12" id="dadosCartao">
+                        <div class="col-lg offset">
+                            <h1>Cartão:</h1>
+                            <input type="hidden" name="metodoPagamento" id="metodoPagamento" th:value="${session['metodoPagamento']}">
+
+                            <div class="col caixa-endereco">
+                                <div class="card-body p-5">
+
+                                    <div class="tab-content">
+
+                                        <p class="alert alert-success">Some text success or error</p>
+
+                                        <div class="form-group">
+                                            <label for="username">Nome no Cartão:</label>
+                                            <input type="text" class="form-control" name="nomeCartao"   th:value="${session['cartao'].nomeCartao}" readonly>
+                                        </div> <!-- form-group.// -->
+
+                                        <div class="form-group">
+                                            <label for="cardNumber">Número:</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="numeroCartao"   th:value="${session['cartao'].numeroCartao}" readonly>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text text-muted">
+                                                        <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>  
+                                                        <i class="fab fa-cc-mastercard"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="parcelaCartao">Parcelas:</label>
+                                            <input type="text" class="form-control" name="parcelaCartao"   th:value="${session['cartao'].parcelas}" readonly>
+
+                                        </div><!-- form-group.// -->
+                                    </div> <!-- card-body.// -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12" id="dadosBoleto">
+                        <div class="col-lg offset">
+                            <h1>Boleto:</h1>
+                            <div class="col caixa-endereco">
+                                
+
+                                    <div class="col-lg-12">    
+                                        <div class="card-body p-5" id="nav-tab-boleto">
+
+                                            <dl class="param">
+                                                <dt>Valor dos Produtos: </dt>
+                                                <dd th:text="| R$ ${session['totalCarrinho']}|"> R$ 100,00"</dd>
+                                                <dt>Valor do Frete </dt>
+                                                <dd th:text="| R$ ${session['freteEscolhido'].valor}|">R$ 100,00</dd>
+                                                <dt>Valor do boleto: </dt>
+                                                <dd th:text="| R$ ${session['valorFinal']}|"> R$ 100,00</dd>
+                                            </dl>
+
+                                        </div> <!-- tab-pane.// -->
+                                    </div>
+                                
+                            </div>
+                        </div> <!-- tab-pane.// -->
+                    </div>
+
+                    <div class="col-lg-12" id="valoresFinais">
+                        <div class="col-lg offset">
+                            <div class="col" id="valoresFinais">
+
+                                <div class="produtosCarrinho">
+                                    <div class="col caixa-produtos d-md-flex align-items-center  mb-30">
+                                        <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                            <div class="dados-produto">
+
+                                                <div class="col">
+                                                    <h4 id="valorDosProdutos" ><small th:text="|Valor Produtos R$ ${session['totalCarrinho']}|" th:value="${session['valorTotal']}" ></small></h4>
+                                                    <h4><small th:text="|Valor Frete: R$ ${session['freteEscolhido'].valor}|">Desconto: R$10,00</small></h4>
+                                                </div>
+
+                                                <div class="col">
+                                                    <h4 th:text="|Valor Final: R$ ${session['valorFinal']}|">Valor Final: R$212,00</h4>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+   <!--container end.//-->
+                </div> <!-- row.// -->
+                <button class="subscribe btn btn-primary btn-block" type="submit"> Confirm </button>
+            </div> <!-- row.// -->
+</form>
+
+
+
+
+
+</body>
+<script>
+    $(document).ready(function () {
+
+        var metodoPagamento = document.getElementById("metodoPagamento").value
+
+        if (metodoPagamento == 1) {
+
+            document.getElementById("dadosBoleto").style.display = "none"
+        }
+        if (metodoPagamento == 2) {
+            document.getElementById("dadosCartao").style.display = "none"
+            document.getElementById("valoresFinais").style.display = "none"
+        }
+    });
+
+//        function somarValores() {
+//            var soma = document.getElementsByName("valorProduto");
+//            var somaTotal = 0;
+//            for (data in soma) {
+//                somaTotal += data[0].value;
+//                console.log(data);
+//            }
+//            document.getElementById("valorDosProdutos").value = somaTotal;
+//            document.getElementById("valorDosProdutos").innerHTML = somaTotal;
+//        }
+//
+//        somarValores();
+
+
+</script>
+
+</html>
