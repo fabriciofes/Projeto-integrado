@@ -1,0 +1,96 @@
+\chapter{Requisitos funcionais e não funcionais}
+
+\section{Requisitos funcionais}
+\begin{quadro}[thb]
+\ABNTEXfontereduzida
+\caption{Requisitos Funcionais}
+\label{quadro-poluido-limpo-desalinhado}
+\begin{tabular}{|l|p{2cm}|l|l|l|p{6cm}|}
+\hline
+\thead{RF}&\thead{Requisitos\\Funcionais} & \thead{Essencial} & \thead{Importante} & \thead{Desejável} & \thead{Descrição}\\
+\hline
+RF001&Permitir cadastro de usuários&\circlemark& & & O sistema tem que conceder o cadastro do usuário;\\
+\hline
+RF002&Permitir cadastro de usuários com conta Google&\circlemark& & & A aplicação deverá permitir que o usuário se cadastre usando a conta Google.\\
+\hline
+RF003&Permitir cadastro dos Pets&\circlemark& & & O sistema carece que o usuário realize o cadastro do pet (cachorro ou gato).\\
+\hline
+RF004&Permitir o cadastro do motorista&\circlemark& & & O app deverá aceitar o cadastro do motorista;\\
+\hline
+RF005&Validar e-mail&\circlemark& & & A aplicação precisa validar se o e-mail informado está correto, enviando um e-mail para o tipo usuário que está solicitando o cadastro. No máximo em 10 segundos.\\
+\hline
+RF006&Validar celular&\circlemark& & & A aplicação deve enviar um sms validando o número do celular do cliente cadastrado e do motorista no máximo em 10 segundos.\\
+\hline
+RF007&Realizar o login &\circlemark& & & O sistema deverá permitir o usuário efetuar login;\\
+\hline
+RF008&Escolher modalidade&\circlemark& & & Quando o cliente acessar o aplicativo o cliente escolher a modalidade comum ou premium, sendo a modalidade comum somente transporte de levar até um local específico e a premium disponibiliza serviços como: transporte e cuidado em parque, acompanhamento no veterinário e etc.\\
+\hline
+RF009&Quantidade de pets&\circlemark& & & A aplicação deverá solicitar que o cliente informe a quantidade de pets que irá ser transportado;\\
+\hline
+RF010&Escolher forma de pagamento&\circlemark& & & O cliente define a forma de pagamento como: cartão de crédito com cobrança na hora ou dinheiro depositado previamente na conta.\\
+\hline
+\end{tabular}
+\fonte{Os autores.}
+\end{quadro}
+
+\newpage
+\begin{quadro}[thb]
+\ABNTEXfontereduzida
+\begin{tabular}{|l|p{2cm}|l|l|l|p{6cm}|}
+\hline
+\thead{RF}&\thead{Requisitos\\Funcionais} & \thead{Essencial} & \thead{Importante} & \thead{Desejável} & \thead{Descrição}\\
+\hline
+RF011&Calcular viagem&\circlemark& & & A aplicação deverá informar ao cliente o valor da viagem antes do mesmo iniciar a viagem, levando em consideração a quantidade de pets, distância e modalidade (serviços da modalidade premium);\\
+\hline
+RF012&Informar tempo estimado da chegada do veículo&\circlemark& & & Através de um cálculo utilizando distância entre o passageiro e o motorista, o sistema deverá estimar um tempo de chegada. \\
+\hline
+RF013&Solicitar Transporte &\circlemark& & & O sistema deverá possibilitar a um usuário com perfil passageiro informar um local de origem e destino, para posteriormente fazer uma solicitação de transporte. \\
+\hline
+RF014&Acompanhar o pet no mapa&\circlemark& & & Tanto os passageiros como motoristas deverão poder acompanhar a posição do usuário que estiverem envolvidos na viagem.\\
+\hline
+RF015&Conversar com o motorista&\circlemark& & & A aplicação precisa disponibilizar  um chat para a comunicação entre o cliente e o motorista;\\
+\hline
+RF016&Agendar viagem& &\circlemark& & Descrição: A aplicação deverá disponibilizar a disponibilidade do motorista para o cliente, caso o mesmo deseje agendar uma nova viagem previamente.\\
+\hline
+RF017&Permitir confirmação da viagem&\circlemark& & & Toda viagem necessita ser confirmada tanto pelos passageiros como motoristas. \\
+\hline
+RF018&Finalizar viagem&\circlemark& & & A aplicação só liberará a opção de finalizar a viagem ao motorista a 1 metro do final do trajeto;\\
+\hline
+RF019&Permitir cancelamento da viagem&\circlemark& & & O cancelamento só será permitido caso houver um incidente pelo motorista. O sistema mostrará uma tela informando os possíveis motivos para o cancelamento.\\
+\hline
+RF20&Realizar avaliação da viagem&\circlemark& & & Ao término de cada viagem o passageiro irá receber uma mensagem no celular para estar avaliando a experiência da viagem e do serviço feito pelo motorista. \\
+\hline
+\end{tabular}
+\fonte{Os autores.}
+\end{quadro}
+\\
+
+%-----------------------------------------------%
+\newpage
+\\
+\section{Requisitos não funcionais}
+\begin{quadro}[thb]
+\ABNTEXfontereduzida
+\caption{Requisitos não funcionais}
+\label{quadro-poluido-limpo-desalinhado}
+\begin{tabular}{|l|p{2cm}|l|l|l|p{6cm}|}
+\hline
+\thead{RNF}&\thead{Requisitos\\Funcionais} & \thead{Essencial} & \thead{Importante} & \thead{Desejável} & \thead{Descrição}\\
+\hline
+RNF001&Interface com boa usabilidade&\circlemark& & & A aplicação deve ser intuitiva, de modo que possa ser de fácil entendimento  a todas as pessoas que acessarem o aplicativo.\\
+\hline
+RNF002&Resposta rápida do servidor&\circlemark& & & O software tem que fazer as consultas, histórico de viagens e a autenticação em menos de 1 segundo no lado do servidor.\\
+\hline
+RNF003&Verificar senha&\circlemark& & & O aplicativo necessita validar se a senha é composta por letras,caracteres especiais e número.\\
+\hline
+RNF004&Viagem acompanhada com o dono& &\circlemark& & O cliente deve informar via aplicativo para o motorista se irá acompanhar o seu pet. (haverá um botão no app) .\\
+\hline
+RNF005&Exibir senha& &\circlemark& & O aplicativo deve disponibilizar a opção de visualizar a senha.\\
+\hline
+RNF006&Disponibilidade do aplicativo&\circlemark& & & A aplicação deve estar disponível 99,99\% do tempo para os usuários, sete dias por semana e 24 horas por dia.\\
+\hline
+RNF007&Restringir a quantidade de  pets&\circlemark& & & O sistema deve informar a quantidade máxima de pets que o motorista pode transportar, tendo o máximo de 4 pets. \\
+\hline
+\end{tabular}
+\fonte{Os autores.}
+\end{quadro}
